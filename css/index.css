@@ -5,9 +5,6 @@ body {
 body section#topPhoneCall {
   font-size: 18px;
   font-weight: bolder;
-  height: 45px;
-  line-height: 45px;
-  vertical-align: middle;
 }
 body section#topPhoneCall div#topPhoneCallWrapper {
   padding: 0px 10px;
@@ -16,16 +13,26 @@ body section#topPhoneCall div#topPhoneCallWrapper {
   max-width: 1100px;
   color: #2D3E50;
 }
-body section#topPhoneCall div#topPhoneCallWrapper span.phonelogo {
+body section#topPhoneCall div#topPhoneCallWrapper span.infoWrapper {
+  line-height: 45px;
+}
+body section#topPhoneCall div#topPhoneCallWrapper span.infoWrapper span.phonelogo {
   position: absolute;
   color: #f96302;
   font-size: 30px;
 }
-body section#topPhoneCall div#topPhoneCallWrapper span.text-call {
+body section#topPhoneCall div#topPhoneCallWrapper span.infoWrapper span.text-call {
   margin-left: 30px;
 }
-body section#topPhoneCall div#topPhoneCallWrapper a {
+body section#topPhoneCall div#topPhoneCallWrapper span.infoWrapper a {
   color: #f96302;
+}
+@media only screen and (max-width: 500px) {
+  body section#topPhoneCall div#topPhoneCallWrapper span.infoWrapper {
+    display: block;
+    text-align: center;
+    line-height: 30px;
+  }
 }
 body section#navigation {
   height: 95px;
