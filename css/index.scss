@@ -1,0 +1,180 @@
+$themeColor:#f96302;
+$themeBgColor:#d6d6d6;
+$fontColor:#2D3E50;
+$webBgColor:#ffffff;
+
+body {
+    background-color: $webBgColor;
+    font-family: helvetica-neue, Helvetica Neue, Helvetica, Arial, sans-serif;
+
+    section#topPhoneCall {
+        font-size: 18px;
+        font-weight: bolder;
+        height: 45px;
+        line-height: 45px;
+        vertical-align: middle;
+
+        div#topPhoneCallWrapper {
+            padding: 0px 10px;
+            margin: 0px auto;
+            position: relative;
+            max-width: 1100px;
+            color: $fontColor;
+
+            span.phonelogo {
+                position: absolute;
+                color: $themeColor;
+                font-size: 30px;
+            }
+
+            span.text-call {
+                margin-left: 30px;
+            }
+
+            a {
+                color: $themeColor;
+            }
+        }
+    }
+
+    section#navigation {
+        height: 95px;
+        background-color: $themeBgColor;
+        position: sticky;
+        top: 0px;
+
+        div#navWrapper {
+            padding: 0px 10px;
+            margin: 0px auto;
+            position: relative;
+            max-width: 1100px;
+            height: 100%;
+
+            img {
+                height: inherit;
+            }
+
+            nav {
+                float: right;
+                height: inherit;
+
+                ul#masterNav {
+                    height: inherit;
+
+                    >li {
+                        height: inherit;
+                        display: table;
+                        color: $fontColor;
+                        float: left;
+                        padding: 0px 20px;
+                        cursor: pointer;
+                        border-top: 3px solid $themeBgColor;
+
+                        &:hover {
+                            color: $themeColor;
+                            border-top-color: $themeColor;
+
+                            i#arrow {
+                                border-top-color: $themeColor;
+                                border-right-color: $themeColor;
+                            }
+                        }
+
+                        i#arrow {
+                            height: 10px;
+                            width: 10px;
+                            border-top: 2px solid $fontColor;
+                            border-right: 2px solid $fontColor;
+                            display: inline-block;
+                            transform: rotate(135deg);
+                            position: relative;
+                            top: -3px;
+                            left: 5px;
+                        }
+
+                        >a {
+                            display: table-cell;
+                            vertical-align: middle;
+                        }
+                    }
+
+                    >li.subNavigation {
+                        width: 140px;
+                        position: relative;
+
+                        ul#subNav {
+                            display: none;
+                            position: absolute;
+                            top: 80%;
+                            left: 35px;
+                            border-top: 3px solid $themeColor;
+                            width: 300px;
+
+                            li {
+                                background-color: $themeBgColor;
+                                height: 65px;
+                                line-height: 65px;
+                                color: $fontColor;
+                                padding: 0px 20px;
+                                margin-bottom: 1px;
+
+                                &:hover {
+                                    color: $webBgColor;
+                                    background-color: $themeColor;
+                                }
+                            }
+                        }
+
+                        &:hover {
+                            ul#subNav {
+                                display: block;
+                            }
+                        }
+                    }
+
+                    >li.currentPage {
+                        color: $webBgColor;
+                        background-color: $themeColor;
+                        border-top-color: $themeColor;
+
+                        i#arrow {
+                            border-top-color: $webBgColor;
+                            border-right-color: $webBgColor;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    $navBar:(65px, 95px, Regular),
+    (95px, 65px, Small);
+
+    @each $from,
+    $to,
+    $name in $navBar {
+        @keyframes navBarTo#{$name} {
+            from {
+                height: $from;
+            }
+
+            to {
+                height: $to;
+            }
+        }
+
+        section.navBarTo#{$name} {
+            animation-name: navBarTo#{$name};
+            animation-duration: 0.6s;
+            animation-fill-mode: forwards;
+
+            @if $name==Regular {
+                border-bottom: 1px solid $themeColor;
+            }
+        }
+    }
+
+    @media only screen and (max-width: 850px) {
+        section#navigation {}
+    }
+}
