@@ -33,6 +33,9 @@ body section#topPhoneCall div#topPhoneCallWrapper span.infoWrapper a {
     text-align: center;
     line-height: 30px;
   }
+  body section#topPhoneCall div#topPhoneCallWrapper span.infoWrapper:last-child {
+    text-indent: 10px;
+  }
 }
 body section#navigation {
   height: 95px;
