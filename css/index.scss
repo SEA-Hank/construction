@@ -72,6 +72,10 @@ body {
                 height: inherit;
             }
 
+            span.icon-nav-list {
+                display: none;
+            }
+
             nav {
                 float: right;
                 height: inherit;
@@ -82,7 +86,6 @@ body {
                     >li {
                         height: inherit;
                         display: table;
-                        color: $fontColor;
                         float: left;
                         padding: 0px 20px;
                         cursor: pointer;
@@ -110,9 +113,10 @@ body {
                             left: 5px;
                         }
 
-                        >a {
+                        a {
                             display: table-cell;
                             vertical-align: middle;
+                            color: $fontColor;
                         }
                     }
 
@@ -186,13 +190,150 @@ body {
             animation-duration: 0.6s;
             animation-fill-mode: forwards;
 
-            @if $name==Regular {
+            @if $name==Small {
                 border-bottom: 1px solid $themeColor;
             }
         }
     }
 
     @media only screen and (max-width: 850px) {
-        section#navigation {}
+        section#navigation {
+            padding: 0px;
+
+            div#navWrapper {
+                img#logo {
+                    width: 240px;
+                }
+
+                span.icon-nav-list {
+                    display: block;
+                    font-size: 60px;
+                    color: $themeColor;
+                    cursor: pointer;
+                    float: right;
+                    position: relative;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+
+                nav {
+                    z-index: 999;
+                    background-color: rgba(255, 255, 255, .8);
+                    overflow: scroll;
+                    display: none;
+                    position: fixed;
+                    top: 0px;
+                    bottom: 0px;
+                    left: 0px;
+                    right: 0px;
+
+                    &.showMobileNav {
+                        display: block;
+                    }
+
+                    ul#masterNav {
+                        height: auto;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+
+                        li {
+                            font-size: 20px;
+                            border-top: none;
+                            float: none;
+                            height: auto;
+                            padding: 10px 0px;
+                            width: 100%;
+                            text-align: center;
+
+                            &:hover {
+                                i#arrow {
+                                    border-top-color: $fontColor;
+                                    border-right-color: $fontColor;
+                                }
+                            }
+                        }
+
+                        >li.currentPage {
+                            color: $fontColor;
+                            background-color: transparent;
+
+                            i#arrow {
+                                border-top-color: $fontColor;
+                                border-right-color: $fontColor;
+                            }
+                        }
+
+                        li.subNavigation {
+                            width: 100%;
+
+                            a {
+                                display: inline;
+                            }
+
+                            ul#subNav {
+                                display: block;
+                                border-top: none;
+                                position: initial;
+                                width: auto;
+                                height: 0px;
+                                overflow: hidden;
+
+                                li {
+                                    height: auto;
+                                    line-height: initial;
+                                    background-color: transparent;
+                                    overflow: hidden;
+                                    margin: 0px;
+                                    white-space: nowrap;
+                                    padding: 10px;
+
+                                    &:hover {
+                                        color: $themeColor;
+                                        background-color: transparent;
+                                    }
+                                }
+                            }
+
+                            @mixin mobileSubNav($name) {
+                                @keyframes #{$name} {
+                                    $from: 0;
+                                    $to: 0;
+
+                                    @if $name==showSubNav {
+                                        $from: 0px;
+                                        $to: 270px;
+                                    }
+
+                                    @else {
+                                        $from: 270px;
+                                        $to: 0px;
+                                    }
+
+                                    from {
+                                        height: $from;
+                                    }
+
+                                    to {
+                                        height: $to;
+                                    }
+                                }
+
+                                ul.#{$name} {
+                                    animation-name: $name;
+                                    animation-duration: .8s;
+                                    animation-fill-mode: forwards;
+                                }
+                            }
+
+                            @include mobileSubNav(showSubNav);
+
+                            @include mobileSubNav(hideSubNav);
+                        }
+                    }
+                }
+            }
+        }
     }
 }
