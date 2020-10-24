@@ -336,4 +336,39 @@ body {
             }
         }
     }
+
+    section#picture {
+        div#pictureWrapper {
+            font-size: 0px;
+            text-align: center;
+
+            img {
+                width: 30%;
+                height: 425px;
+                object-fit: cover;
+            }
+
+            @media screen and (max-width: 1500px) {
+                img {
+                    width: 50%;
+                }
+
+                img.pic-3 {
+                    display: none;
+                }
+            }
+
+            @media screen and (max-width: 1000px) {
+                img {
+                    width: 100%;
+                    height: auto;
+                    max-height: 425px;
+                }
+
+                img.pic-2 {
+                    display: none;
+                }
+            }
+        }
+    }
 }

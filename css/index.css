@@ -271,5 +271,32 @@ body section.navBarToSmall {
     animation-fill-mode: forwards;
   }
 }
+body section#picture div#pictureWrapper {
+  font-size: 0px;
+  text-align: center;
+}
+body section#picture div#pictureWrapper img {
+  width: 30%;
+  height: 425px;
+  object-fit: cover;
+}
+@media screen and (max-width: 1500px) {
+  body section#picture div#pictureWrapper img {
+    width: 50%;
+  }
+  body section#picture div#pictureWrapper img.pic-3 {
+    display: none;
+  }
+}
+@media screen and (max-width: 1000px) {
+  body section#picture div#pictureWrapper img {
+    width: 100%;
+    height: auto;
+    max-height: 425px;
+  }
+  body section#picture div#pictureWrapper img.pic-2 {
+    display: none;
+  }
+}
 
 /*# sourceMappingURL=index.css.map */
