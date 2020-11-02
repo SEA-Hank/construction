@@ -42,6 +42,7 @@ body section#navigation {
   background-color: #d6d6d6;
   position: sticky;
   top: 0px;
+  z-index: 666;
 }
 body section#navigation div#navWrapper {
   padding: 0px 10px;
@@ -100,6 +101,7 @@ body section#navigation div#navWrapper nav ul#masterNav > li.subNavigation {
   position: relative;
 }
 body section#navigation div#navWrapper nav ul#masterNav > li.subNavigation ul#subNav {
+  background-color: #ffffff;
   display: none;
   position: absolute;
   top: 80%;
@@ -230,6 +232,7 @@ body section.navBarToSmall {
     width: auto;
     height: 0px;
     overflow: hidden;
+    background-color: transparent;
   }
   body section#navigation div#navWrapper nav ul#masterNav li.subNavigation ul#subNav li {
     height: auto;
@@ -271,12 +274,15 @@ body section.navBarToSmall {
     animation-fill-mode: forwards;
   }
 }
+body section#picture {
+  position: relative;
+}
 body section#picture div#pictureWrapper {
   font-size: 0px;
   text-align: center;
 }
 body section#picture div#pictureWrapper img {
-  width: 30%;
+  width: 33.33%;
   height: 425px;
   object-fit: cover;
 }
@@ -296,6 +302,60 @@ body section#picture div#pictureWrapper img {
   }
   body section#picture div#pictureWrapper img.pic-2 {
     display: none;
+  }
+}
+body section#picture div#consulationWrapper {
+  height: 100%;
+  width: 450px;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  right: 20%;
+  top: 0px;
+  display: table;
+}
+body section#picture div#consulationWrapper div#consulationInfo {
+  display: table-cell;
+  vertical-align: middle;
+}
+body section#picture div#consulationWrapper div#consulationInfo p {
+  text-align: center;
+  font-size: 40px;
+  color: white;
+  padding: 10px;
+}
+body section#picture div#consulationWrapper div#consulationInfo p.outstanding {
+  color: #f96302;
+  font-size: 30PX;
+}
+body section#picture div#consulationWrapper div#consulationInfo p button {
+  border: none;
+  color: white;
+  background-color: #f96302;
+  padding: 20PX;
+  font-size: 16PX;
+  cursor: pointer;
+  border-radius: 3px;
+}
+body section#picture div#consulationWrapper div#consulationInfo p button:focus {
+  outline: none;
+}
+@media screen and (max-width: 1500px) {
+  body section#picture div#consulationWrapper {
+    right: 10%;
+  }
+}
+@media screen and (max-width: 850px) {
+  body section#picture div#consulationWrapper {
+    position: static;
+    width: 100%;
+    background: #d6d6d6;
+  }
+  body section#picture div#consulationWrapper div#consulationInfo p {
+    font-size: 30px;
+    color: #2D3E50;
+  }
+  body section#picture div#consulationWrapper div#consulationInfo p.outstanding {
+    font-size: 20px;
   }
 }
 

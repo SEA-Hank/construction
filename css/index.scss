@@ -60,6 +60,7 @@ body {
         background-color: $themeBgColor;
         position: sticky;
         top: 0px;
+        z-index: 666;
 
         div#navWrapper {
             padding: 0px 10px;
@@ -125,6 +126,7 @@ body {
                         position: relative;
 
                         ul#subNav {
+                            background-color: $webBgColor;
                             display: none;
                             position: absolute;
                             top: 80%;
@@ -279,6 +281,7 @@ body {
                                 width: auto;
                                 height: 0px;
                                 overflow: hidden;
+                                background-color: transparent;
 
                                 li {
                                     height: auto;
@@ -338,12 +341,14 @@ body {
     }
 
     section#picture {
+        position: relative;
+
         div#pictureWrapper {
             font-size: 0px;
             text-align: center;
 
             img {
-                width: 30%;
+                width: 33.33%;
                 height: 425px;
                 object-fit: cover;
             }
@@ -367,6 +372,70 @@ body {
 
                 img.pic-2 {
                     display: none;
+                }
+            }
+        }
+
+        div#consulationWrapper {
+            height: 100%;
+            width: 450px;
+            background-color: rgba(#000000, 0.6);
+            position: absolute;
+            right: 20%;
+            top: 0px;
+            display: table;
+
+            div#consulationInfo {
+                display: table-cell;
+                vertical-align: middle;
+
+                p {
+                    text-align: center;
+                    font-size: 40px;
+                    color: white;
+                    padding: 10px;
+
+                    &.outstanding {
+                        color: $themeColor;
+                        font-size: 30PX;
+                    }
+
+                    button {
+                        border: none;
+                        color: white;
+                        background-color: $themeColor;
+                        padding: 20PX;
+                        font-size: 16PX;
+                        cursor: pointer;
+                        border-radius: 3px;
+                        ;
+
+                        &:focus {
+                            outline: none;
+
+                        }
+                    }
+                }
+            }
+
+            @media screen and (max-width: 1500px) {
+                right: 10%;
+            }
+
+            @media screen and (max-width: 850px) {
+                position: static;
+                width: 100%;
+                background: $themeBgColor;
+
+                div#consulationInfo {
+                    p {
+                        font-size: 30px;
+                        color: $fontColor;
+
+                        &.outstanding {
+                            font-size: 20px;
+                        }
+                    }
                 }
             }
         }
