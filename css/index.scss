@@ -1,15 +1,16 @@
 $themeColor:#f96302;
-$themeBgColor:#d6d6d6;
+//$themeBgColor:#d6d6d6;
+$themeBgColor:#fff;
 $fontColor:#2D3E50;
-$webBgColor:#ffffff;
 
 body {
-    background-color: $webBgColor;
+    background-color: $themeBgColor;
     font-family: helvetica-neue, Helvetica Neue, Helvetica, Arial, sans-serif;
 
     section#topPhoneCall {
         font-size: 18px;
         font-weight: bolder;
+        background-color: $fontColor;
 
         div#topPhoneCallWrapper {
 
@@ -18,6 +19,10 @@ body {
             position: relative;
             max-width: 1100px;
             color: $fontColor;
+
+            span {
+                color: white;
+            }
 
             span.infoWrapper {
                 line-height: 45px;
@@ -126,7 +131,7 @@ body {
                         position: relative;
 
                         ul#subNav {
-                            background-color: $webBgColor;
+                            background-color: $fontColor;
                             display: none;
                             position: absolute;
                             top: 80%;
@@ -143,7 +148,7 @@ body {
                                 margin-bottom: 1px;
 
                                 &:hover {
-                                    color: $webBgColor;
+                                    color: $themeBgColor;
                                     background-color: $themeColor;
                                 }
                             }
@@ -157,13 +162,13 @@ body {
                     }
 
                     >li.currentPage {
-                        color: $webBgColor;
+                        color: $themeBgColor;
                         background-color: $themeColor;
                         border-top-color: $themeColor;
 
                         i#arrow {
-                            border-top-color: $webBgColor;
-                            border-right-color: $webBgColor;
+                            border-top-color: $themeBgColor;
+                            border-right-color: $themeBgColor;
                         }
                     }
                 }
@@ -220,7 +225,7 @@ body {
 
                 nav {
                     z-index: 999;
-                    background-color: rgba(255, 255, 255, .8);
+                    background-color: rgba(255, 255, 255, .9);
                     overflow: scroll;
                     display: none;
                     position: fixed;
@@ -425,15 +430,169 @@ body {
             @media screen and (max-width: 850px) {
                 position: static;
                 width: 100%;
-                background: $themeBgColor;
+                background: $fontColor;
 
                 div#consulationInfo {
                     p {
                         font-size: 30px;
-                        color: $fontColor;
 
                         &.outstanding {
                             font-size: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    section#services {
+        div#services-title {
+            color: $fontColor;
+            font-weight: bolder;
+            font-size: 24px;
+            text-align: center;
+            padding: 80px 0px 0px 0px;
+
+            @media screen and (max-width:500px) {
+                padding: 15px 0px 10px 0px;
+                font-size: 20px;
+            }
+        }
+
+        div#services-contents {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 80%;
+            margin: 0px auto;
+            justify-content: center;
+
+            div.content-detail {
+                width: 30%;
+                min-width: 400px;
+
+                &:hover {
+                    div.detail-wrapper {
+
+                        div.detail-logo {
+                            div.logo-wrapper::before {
+                                transform: translate(0%);
+                            }
+                        }
+                    }
+                }
+
+                div.detail-wrapper {
+                    margin: 0px auto;
+                    padding-top: 80px;
+                    width: 400px;
+
+                    &::after {
+                        content: ' ';
+                        display: block;
+                        clear: both;
+                        height: 0;
+                        width: 0;
+                    }
+
+                    div.detail-logo {
+                        float: left;
+
+                        div.logo-wrapper {
+                            height: 105px;
+                            width: 105px;
+                            background-color: $themeColor;
+                            border-radius: 105px;
+                            text-align: center;
+                            line-height: 105px;
+                            transition: all 1s;
+                            position: relative;
+                            overflow: hidden;
+                            z-index: 0;
+
+                            &::before {
+                                width: 100%;
+                                height: 100%;
+                                border-radius: 100%;
+                                background-color: $fontColor;
+                                background-size: 0px 100%;
+                                transform: translate(-100%);
+                                transition: transform 0.4s;
+                                display: block;
+                                position: absolute;
+                                content: ' ';
+                                z-index: -1;
+                            }
+
+                            .iconfont {
+                                font-size: 80px;
+                                color: $themeBgColor;
+                            }
+                        }
+                    }
+
+                    div.detail-description {
+                        float: left;
+                        padding-left: 10px;
+                        width: 285px;
+
+                        p.detail-title {
+                            font-size: 16px;
+                            letter-spacing: 2px;
+                        }
+
+                        p.detail-content {
+                            line-height: 30px;
+                            margin-top: 10px;
+                            font-size: 16px;
+                            color: #888;
+                        }
+                    }
+                }
+            }
+
+            @media screen and (max-width:1900px) {
+                width: 100%;
+            }
+
+            @media screen and (max-width:1215px) {
+                div.content-detail {
+                    width: 50%;
+                }
+            }
+
+            @media screen and (max-width:500px) {
+                flex-direction: column;
+
+                div.content-detail {
+                    min-width: 0;
+                    width: 100%;
+
+                    div.detail-wrapper {
+                        width: 100%;
+                        padding-top: 10px;
+
+                        div.detail-logo {
+                            float: none;
+
+                            div.logo-wrapper {
+                                margin: 0px auto;
+                            }
+                        }
+
+                        div.detail-description {
+                            float: none;
+                            width: 100%;
+                            margin: 0px;
+
+                            p {
+                                text-align: center;
+                                padding: 0px 10px 0px 10px;
+
+                                &.detail-title {
+                                    margin-top: 10px;
+                                }
+                            }
                         }
                     }
                 }
