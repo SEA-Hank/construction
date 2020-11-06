@@ -2,6 +2,7 @@ $themeColor:#f96302;
 //$themeBgColor:#d6d6d6;
 $themeBgColor:#fff;
 $fontColor:#2D3E50;
+$minFontColor:#888;
 
 body {
     background-color: $themeBgColor;
@@ -460,6 +461,7 @@ body {
         }
 
         div#services-contents {
+            padding: 20px;
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
@@ -545,7 +547,7 @@ body {
                             line-height: 30px;
                             margin-top: 10px;
                             font-size: 16px;
-                            color: #888;
+                            color: $minFontColor;
                         }
                     }
                 }
@@ -598,5 +600,107 @@ body {
                 }
             }
         }
+    }
+
+    section#instructions {
+
+        padding: 50px 0px;
+
+        div.instruction-wrapper {
+            padding: 20px;
+
+            div.instruction-title {
+                text-align: center;
+                color: $fontColor;
+                font-size: 24px;
+                font-weight: bold;
+
+                &::after {
+                    content: ' ';
+                    height: 2px;
+                    width: 200px;
+                    background-color: $themeColor;
+                    display: block;
+                    margin: 15px auto;
+                }
+            }
+
+            div.instruction-contents {
+                max-width: 1180px;
+                margin: 0px auto;
+
+                div.instruction-text {
+                    float: left;
+                    width: 50%;
+                    max-width: 550px;
+                    padding: 10px;
+                    color: $minFontColor;
+
+                    p {
+                        padding: 5px 0px;
+                        line-height: 20px;
+                    }
+
+                    span {
+                        float: left;
+                        display: block;
+                        height: 50px;
+                        width: 50px;
+                        border-radius: 3px;
+                        background-color: $themeColor;
+                        color: white;
+                        text-align: center;
+                        line-height: 50px;
+                        font-size: 40px;
+                        margin-right: 12px;
+                    }
+                }
+
+                div.img-wrapper {
+                    float: right;
+                    box-shadow: #2D3E50 2px 2px 10px;
+                    width: 50%;
+                    max-width: 550px;
+                    overflow: hidden;
+                    border: 8px solid white;
+
+                    img {
+                        transition: transform 0.6s;
+                        height: 100%;
+                        width: 100%;
+
+                        &:hover {
+                            transform: scale(1.1);
+                        }
+                    }
+                }
+
+            }
+        }
+
+        @media screen and (max-width:1350px) {
+            div.instruction-wrapper {
+                width: 100%;
+            }
+        }
+
+        @media screen and (max-width:850px) {
+            div.instruction-wrapper {
+                div.instruction-contents {
+                    div.instruction-text {
+                        float: none;
+                        width: 100%;
+                        max-width: none;
+                    }
+
+                    div.img-wrapper {
+                        float: none;
+                        width: 100%;
+                        max-width: none;
+                    }
+                }
+            }
+        }
+
     }
 }

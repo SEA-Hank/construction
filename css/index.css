@@ -375,6 +375,7 @@ body section#services div#services-title {
   }
 }
 body section#services div#services-contents {
+  padding: 20px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -487,6 +488,87 @@ body section#services div#services-contents div.content-detail div.detail-wrappe
   }
   body section#services div#services-contents div.content-detail div.detail-wrapper div.detail-description p.detail-title {
     margin-top: 10px;
+  }
+}
+body section#instructions {
+  padding: 50px 0px;
+}
+body section#instructions div.instruction-wrapper {
+  padding: 20px;
+}
+body section#instructions div.instruction-wrapper div.instruction-title {
+  text-align: center;
+  color: #2D3E50;
+  font-size: 24px;
+  font-weight: bold;
+}
+body section#instructions div.instruction-wrapper div.instruction-title::after {
+  content: " ";
+  height: 2px;
+  width: 200px;
+  background-color: #f96302;
+  display: block;
+  margin: 15px auto;
+}
+body section#instructions div.instruction-wrapper div.instruction-contents {
+  max-width: 1180px;
+  margin: 0px auto;
+}
+body section#instructions div.instruction-wrapper div.instruction-contents div.instruction-text {
+  float: left;
+  width: 50%;
+  max-width: 550px;
+  padding: 10px;
+  color: #888;
+}
+body section#instructions div.instruction-wrapper div.instruction-contents div.instruction-text p {
+  padding: 5px 0px;
+  line-height: 20px;
+}
+body section#instructions div.instruction-wrapper div.instruction-contents div.instruction-text span {
+  float: left;
+  display: block;
+  height: 50px;
+  width: 50px;
+  border-radius: 3px;
+  background-color: #f96302;
+  color: white;
+  text-align: center;
+  line-height: 50px;
+  font-size: 40px;
+  margin-right: 12px;
+}
+body section#instructions div.instruction-wrapper div.instruction-contents div.img-wrapper {
+  float: right;
+  box-shadow: #2D3E50 2px 2px 10px;
+  width: 50%;
+  max-width: 550px;
+  overflow: hidden;
+  border: 8px solid white;
+}
+body section#instructions div.instruction-wrapper div.instruction-contents div.img-wrapper img {
+  transition: transform 0.6s;
+  height: 100%;
+  width: 100%;
+}
+body section#instructions div.instruction-wrapper div.instruction-contents div.img-wrapper img:hover {
+  transform: scale(1.1);
+}
+@media screen and (max-width: 1350px) {
+  body section#instructions div.instruction-wrapper {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 850px) {
+  body section#instructions div.instruction-wrapper div.instruction-contents div.instruction-text {
+    float: none;
+    width: 100%;
+    max-width: none;
+  }
+  body section#instructions div.instruction-wrapper div.instruction-contents div.img-wrapper {
+    float: none;
+    width: 100%;
+    max-width: none;
   }
 }
 
